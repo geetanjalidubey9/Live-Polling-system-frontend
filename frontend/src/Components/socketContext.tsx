@@ -6,7 +6,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:8000");
+    const newSocket = io("https://live-polling-system-backend-production-4f28.up.railway.app");
     setSocket(newSocket);
 
     // newSocket.on("connect", () => console.log("Socket connected:", newSocket.id));
