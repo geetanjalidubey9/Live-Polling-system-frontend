@@ -37,7 +37,7 @@ const LoadingComponent: React.FC = () => {
           Let's wait for the teacher to ask questions...
         </h1>
       </div>
-      <ChatComponent role="teacher"/>
+      <ChatComponent role="teacher"pollId={pollData.pollId} name={studentName}/>
     </div>   
   );
 };

@@ -165,6 +165,7 @@ const handleAddOption = () => {
       });
       if (!response.ok) {
         const errData = await response.json();
+        console.log(errData)
         throw new Error("Failed to send question");
       }
       const data = await response.json();

@@ -31,7 +31,7 @@ const QuesComponent: React.FC<QuesComponentProps> = ({pollData: propPollData,rol
   const [studentId, setStudentId] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [percentages, setPercentages] = useState<{ [key: string]: number }>({});
-
+console.log(studentId)
    useEffect(() => {
     let id = sessionStorage.getItem("studentId");
     if (!id) {
@@ -51,7 +51,7 @@ const QuesComponent: React.FC<QuesComponentProps> = ({pollData: propPollData,rol
   if (!pollData)return <LoadingComponent/>
   const handleSubmit = async () => {
     if (!selectedAnswer) {
-      alert("Please select an answer!");
+      setToast({message:"please select answer",type:"error"})
       return;
     } 
    const payload = {
@@ -234,6 +234,11 @@ useEffect(() => {
         )}
       </div>
       <ChatComponent role={currentRole} pollId={pollData.pollId} name={studentName}/>
+       {toast && (
+      <Toast
+        message={toast.message}
+        type={toast.type}/>
+      )}
     </div>
   );
 };
