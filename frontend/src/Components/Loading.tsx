@@ -1,4 +1,3 @@
-import ChatComponent from "./chatComponent";
 import LogoComponent from "./logoComponent";
 import { useEffect, useRef,useState } from "react";
 import { useSocket } from "./socketContext";
@@ -16,12 +15,14 @@ const LoadingComponent: React.FC = () => {
   useEffect(() => {
     if (!socket) return;
     const handleNewPoll = (data: any) => {
-      setPollData(data); 
+      setPollData(data);
+      console.log("pollData",pollData); 
       if (!navigatedRef.current) {
         navigatedRef.current = true;
         navigate("/ques", { state: { pollData: data ,role:"student",studentName:studentName} });
       }
     };
+    
     socket.on("new-poll", handleNewPoll);
     return () => {
       socket.off("new-poll", handleNewPoll);
@@ -37,7 +38,6 @@ const LoadingComponent: React.FC = () => {
           Let's wait for the teacher to ask questions...
         </h1>
       </div>
-      <ChatComponent role="teacher"pollId={pollData.pollId} name={studentName}/>
     </div>   
   );
 };
