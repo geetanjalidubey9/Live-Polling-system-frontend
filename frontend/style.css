@@ -1,0 +1,17 @@
+@import "tailwindcss";
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Sora';
+  font-style: normal;
+  background-color: #F2F2F2;
+}
+.intervue-gradient {
+  background: linear-gradient(90deg, #7565D9 0%, #4D0ACD 100%);
+}
+
+.btn-color {
+  background: linear-gradient(99.18deg, #8F64E1 -46.89%, #1D68BD 223.45%);
+  color: #fff;
+}
